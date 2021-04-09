@@ -1,4 +1,5 @@
 from os import system
+import random
 
 system('clear')
 
@@ -6,21 +7,20 @@ print('*****************************')
 print('     Jogo de adivinhação')
 print('*****************************\n')
 
-numero_secreto = 42
-total_de_tentativas = int(
-    input('Quantas tentativas você precisa para advinhar o número secreto: '))
-contador = total_de_tentativas
-pontuacao = 0
+numero_secreto = random.randint(0, 50)
+total_de_tentativas = 1
+pontuacao = 1000
 
-while (contador > 0):
+while (1):
     system('clear')
 
     print('*****************************')
     print('     Jogo de adivinhação')
+    print(f'     {numero_secreto}')
     print('*****************************\n')
 
     # O "int()" serve para forçar que o input seja um inteiro.
-    print(f'Tentativa {total_de_tentativas} de {contador}!\n')
+    print(f'-=- Tentativa {total_de_tentativas} -=-\n')
     chute = int(input('Digite um número: '))
 
     acertou = chute == numero_secreto
@@ -28,22 +28,19 @@ while (contador > 0):
     menor = chute < numero_secreto
 
     if (acertou):
-        pontuacao += 1
+        break
     elif (maior or menor):
-        pontuacao = pontuacao
-    #     print('\nVocê acertou!')
-    # elif (maior):
-    #     print('\nO seu chute foi maior que o número secreto!')
-    # elif (menor):
-    #     print('\nO seu chute foi menor que o número secreto!')
+        pontuacao = pontuacao - (chute / 2)
     else:
-        print('\nNúmero inválido')
+        print('\nValor inválido')
 
-    contador -= 1
+    total_de_tentativas += 1
 
     system('clear')
 
+system('clear')
 print('\n*****************************************************************')
 print('Fim do jogo!')
-print(f'Você acertou {pontuacao} vez em {total_de_tentativas} tentaivas!')
+print(f'Total de tentativas: {total_de_tentativas}')
+print(f'Pontuação final: {pontuacao}')
 print('*****************************************************************')
