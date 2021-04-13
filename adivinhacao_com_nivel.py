@@ -61,11 +61,13 @@ for rodada in range(1, total_de_tentativas + 1):
         break
     elif (menor):
         print(f'\n{chute} é MENOR que o número secreto!')
-        pontuacao = pontuacao - (chute * percentual_de_erro)
+        pontuacao = pontuacao - \
+            abs((chute - numero_secreto) * percentual_de_erro)
         sleep(2)
     elif(maior):
         print(f'\n{chute} é MAIOR que o número secreto!')
-        pontuacao = pontuacao - (chute * percentual_de_erro)
+        pontuacao = pontuacao - \
+            abs((chute - numero_secreto) * percentual_de_erro)
         sleep(2)
     else:
         print('\nValor inválido')
