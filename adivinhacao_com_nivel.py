@@ -82,3 +82,7 @@ def jogar():
     print(f'Total de tentativas: {rodada} / {total_de_tentativas}')
     print(f'Pontuação final: {pontuacao}')
     print('*****************************************************************')
+
+
+if __name__ == '__main__':
+    jogar()
